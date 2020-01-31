@@ -72,7 +72,7 @@ def black_scholes_call_div_sym(S, K, T, r, q, sigma):
     # q: rate of continuous dividend paying asset
     # sigma: volatility of underlying asset
 
-    N = systats.Normal(0.0, 1.0)
+    N = systats.Normal("N", "N", 0.0, 1.0)
 
     d1 = (sy.ln(S / K) + (r - q + 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
     d2 = (sy.ln(S / K) + (r - q - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
@@ -91,7 +91,7 @@ def black_scholes_call_put_sym(S, K, T, r, q, sigma):
     # q: rate of continuous dividend paying asset
     # sigma: volatility of underlying asset
 
-    N = systats.Normal(0.0, 1.0)
+    N = systats.Normal("N", "N", 0.0, 1.0)
 
     d1 = (sy.ln(S / K) + (r - q + 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
     d2 = (sy.ln(S / K) + (r - q - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
@@ -110,7 +110,7 @@ def sym_euro_vanilla_dividend(S, K, T, r, q, sigma, option='call'):
     # q: rate of continuous dividend paying asset
     # sigma: volatility of underlying asset
 
-    N = systats.Normal(0.0, 1.0)
+    N = systats.Normal("N", "N", 0.0, 1.0)
 
     d1 = (sy.ln(S / K) + (r - q + 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
     d2 = (sy.ln(S / K) + (r - q - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
