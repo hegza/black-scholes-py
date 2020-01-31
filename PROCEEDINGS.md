@@ -13,3 +13,8 @@ Intel MKL FATAL ERROR: Cannot load libmkl_core.so.
 1. `sympy.statistics` library dependency has been deprecated in favor of `sympy.stats`.
 2. Replaced dependency.
 3. Wrote unit tests, and breakage by API changes in sympy and scipy.
+4. Implement a simple benchmark with quick results:
+    * euro_vanilla: 0.16319392499999996
+    * euro_vanilla_dividend: 0.16434525900000008
+    * sym_euro_vanilla: 4.94602177
+    * sym_euro_vanilla_dividend: 4.843446234
