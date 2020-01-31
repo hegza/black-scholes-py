@@ -3,6 +3,7 @@ import numpy as np
 import scipy.stats as si
 import sympy as sy
 import sympy.stats as systats
+from sympy.stats import cdf
 
 
 def black_scholes_call_div(S, K, T, r, q, sigma):
@@ -72,12 +73,12 @@ def black_scholes_call_div_sym(S, K, T, r, q, sigma):
     # q: rate of continuous dividend paying asset
     # sigma: volatility of underlying asset
 
-    N = systats.Normal("N", "N", 0.0, 1.0)
+    N = systats.Normal("N", 0.0, 1.0)
 
     d1 = (sy.ln(S / K) + (r - q + 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
     d2 = (sy.ln(S / K) + (r - q - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
 
-    call = S * sy.exp(-q * T) * N.cdf(d1) - K * sy.exp(-r * T) * N.cdf(d2)
+    call = S * sy.exp(-q * T) * cdf(N)(d1) - K * sy.exp(-r * T) * cdf(N)(d2)
 
     return call
 
@@ -91,12 +92,12 @@ def black_scholes_call_put_sym(S, K, T, r, q, sigma):
     # q: rate of continuous dividend paying asset
     # sigma: volatility of underlying asset
 
-    N = systats.Normal("N", "N", 0.0, 1.0)
+    N = systats.Normal("N", 0.0, 1.0)
 
     d1 = (sy.ln(S / K) + (r - q + 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
     d2 = (sy.ln(S / K) + (r - q - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
 
-    put = K * sy.exp(-r * T) * N.cdf(-d2) - S * sy.exp(-q * T) * N.cdf(-d1)
+    put = K * sy.exp(-r * T) * cdf(N)(-d2) - S * sy.exp(-q * T) * cdf(N)(-d1)
 
     return put
 
@@ -110,16 +111,16 @@ def sym_euro_vanilla_dividend(S, K, T, r, q, sigma, option='call'):
     # q: rate of continuous dividend paying asset
     # sigma: volatility of underlying asset
 
-    N = systats.Normal("N", "N", 0.0, 1.0)
+    N = systats.Normal("N", 0.0, 1.0)
 
     d1 = (sy.ln(S / K) + (r - q + 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
     d2 = (sy.ln(S / K) + (r - q - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
 
     if option == 'call':
-        result = S * sy.exp(-q * T) * N.cdf(d1) - K * \
-            sy.exp(-r * T) * N.cdf(d2)
+        result = S * sy.exp(-q * T) * cdf(N)(d1) - K * \
+            sy.exp(-r * T) * cdf(N)(d2)
     if option == 'put':
-        result = K * sy.exp(-r * T) * N.cdf(-d2) - S * \
-            sy.exp(-q * T) * N.cdf(-d1)
+        result = K * sy.exp(-r * T) * cdf(N)(-d2) - S * \
+            sy.exp(-q * T) * cdf(N)(-d1)
 
     return result

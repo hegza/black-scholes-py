@@ -3,6 +3,7 @@ import numpy as np
 import scipy.stats as si
 import sympy as sy
 import sympy.stats as systats
+from sympy.stats import cdf
 
 
 def euro_vanilla_call(S, K, T, r, sigma):
@@ -73,7 +74,7 @@ def euro_call_sym(S, K, T, r, sigma):
     d1 = (sy.ln(S / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
     d2 = (sy.ln(S / K) + (r - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
 
-    call = (S * N.cdf(d1) - K * sy.exp(-r * T) * N.cdf(d2))
+    call = (S * cdf(N)(d1) - K * sy.exp(-r * T) * cdf(N)(d2))
 
     return call
 
@@ -91,7 +92,7 @@ def euro_put_sym(S, K, T, r, sigma):
     d1 = (sy.ln(S / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
     d2 = (sy.ln(S / K) + (r - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
 
-    put = (K * sy.exp(-r * T) * N.cdf(-d2) - S * N.cdf(-d1))
+    put = (K * sy.exp(-r * T) * cdf(N)(-d2) - S * cdf(N)(-d1))
 
     return put
 
@@ -110,8 +111,8 @@ def sym_euro_vanilla(S, K, T, r, sigma, option='call'):
     d2 = (sy.ln(S / K) + (r - 0.5 * sigma ** 2) * T) / (sigma * sy.sqrt(T))
 
     if option == 'call':
-        result = (S * N.cdf(d1) - K * sy.exp(-r * T) * N.cdf(d2))
+        result = (S * cdf(N)(d1) - K * sy.exp(-r * T) * cdf(N)(d2))
     if option == 'put':
-        result = (K * sy.exp(-r * T) * N.cdf(-d2) - S * N.cdf(-d1))
+        result = (K * sy.exp(-r * T) * cdf(N)(-d2) - S * cdf(N)(-d1))
 
     return result
