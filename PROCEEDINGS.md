@@ -8,3 +8,7 @@ Intel MKL FATAL ERROR: Cannot load libmkl_core.so.
 ```
     2.1. Install community package `intel-parallel-studio-xe` from AUR (2.8 GB).
     2.2. Installation predicted to take 90 minutes over wireless. Swapping computers.
+
+Working on Windows, Etana.
+1. sympy.statistics library dependency has been deprecated in favor of sympy.stats
+    1.1. Replaced dependency
