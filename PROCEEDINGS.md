@@ -12,3 +12,4 @@ Intel MKL FATAL ERROR: Cannot load libmkl_core.so.
 ### Working on Windows, Etana.
 1. `sympy.statistics` library dependency has been deprecated in favor of `sympy.stats`.
 2. Replaced dependency.
+3. Wrote unit tests, and breakage by API changes in sympy and scipy.
