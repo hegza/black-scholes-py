@@ -22,3 +22,8 @@ Intel MKL FATAL ERROR: Cannot load libmkl_core.so.
 ## 2.2.-20
 ### Resume working on Arch Linux, pylon
 1. `conda install -c anaconda mkl` fixed the problem with Intel MKL. Probably because it replaced the .so with the incorrect ELF.
+2. Run the benchmark with quick results (lots of stuff on background):
+    * euro_vanilla: 0.25940795600035926
+    * euro_vanilla_dividend: 0.2574756679969141
+    * sym_euro_vanilla: 5.854757393994078
+    * sym_euro_vanilla_dividend: 5.827031799999531
