@@ -37,3 +37,5 @@ Intel MKL FATAL ERROR: Cannot load libmkl_core.so.
 1. Apply Cython on `black_scholes_dp` and `timeit` via interpreter for quick results.
     * >>> print(str(timeit( lambda : black_scholes_dp.black_scholes_call_div(50, 100, 1, 0.05, 0.06, 0.25), number=1000 )/1000.0))
     * 0.0002949255430139601
+2. Ran `__init__.py` through `time`. Contents: run each BS-function once. Result: `0.33s user, 0.366 total`.
+
