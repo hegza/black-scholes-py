@@ -1,7 +1,5 @@
 import unittest
 
-from sympy import erf, sqrt
-
 from black_scholes_dp import *
 from black_scholes_ndp import *
 
