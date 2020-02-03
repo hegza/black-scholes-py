@@ -2,7 +2,8 @@ import numpy as np
 import scipy.stats as si
 
 
-def euro_vanilla_call(S, K, T, r, sigma):
+from numpy import float64
+def euro_vanilla_call(S: int, K: int, T: int, r: float, sigma: float) -> float64:
 
     # S: spot price
     # K: strike price
@@ -19,7 +20,7 @@ def euro_vanilla_call(S, K, T, r, sigma):
     return call
 
 
-def euro_vanilla_put(S, K, T, r, sigma):
+def euro_vanilla_put(S: int, K: int, T: int, r: float, sigma: float) -> float64:
 
     # S: spot price
     # K: strike price
@@ -36,7 +37,7 @@ def euro_vanilla_put(S, K, T, r, sigma):
     return put
 
 
-def euro_vanilla(S, K, T, r, sigma, option='call'):
+def euro_vanilla(S: int, K: int, T: int, r: float, sigma: float, option: str = 'call') -> float64:
 
     # S: spot price
     # K: strike price

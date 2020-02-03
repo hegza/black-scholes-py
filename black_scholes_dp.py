@@ -2,7 +2,8 @@ import numpy as np
 import scipy.stats as si
 
 
-def black_scholes_call_div(S, K, T, r, q, sigma):
+from numpy import float64
+def black_scholes_call_div(S: int, K: int, T: int, r: float, q: float, sigma: float) -> float64:
 
     # S: spot price
     # K: strike price
@@ -20,7 +21,7 @@ def black_scholes_call_div(S, K, T, r, q, sigma):
     return call
 
 
-def black_scholes_put_div(S, K, T, r, q, sigma):
+def black_scholes_put_div(S: int, K: int, T: int, r: float, q: float, sigma: float) -> float64:
 
     # S: spot price
     # K: strike price
@@ -38,7 +39,7 @@ def black_scholes_put_div(S, K, T, r, q, sigma):
     return put
 
 
-def euro_vanilla_dividend(S, K, T, r, q, sigma, option='call'):
+def euro_vanilla_dividend(S: int, K: int, T: int, r: float, q: float, sigma: float, option: str = 'call') -> float64:
 
     # S: spot price
     # K: strike price
