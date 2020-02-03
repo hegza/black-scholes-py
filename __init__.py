@@ -1,5 +1,3 @@
-from timeit import timeit
-
 from black_scholes_dp import *
 from black_scholes_ndp import *
 
