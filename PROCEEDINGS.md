@@ -31,3 +31,4 @@ Intel MKL FATAL ERROR: Cannot load libmkl_core.so.
 ## 3.2.-20
 ### Windows, Etana
 1. Remove dependency to sympy as out-of-scope.
+2. Increase bench coverage to 100 %.

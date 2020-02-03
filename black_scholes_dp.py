@@ -58,5 +58,3 @@ def euro_vanilla_dividend(S, K, T, r, q, sigma, option='call'):
                   S * np.exp(-q * T) * si.norm.cdf(-d1, 0.0, 1.0))
 
     return result
-
-
