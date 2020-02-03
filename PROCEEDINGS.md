@@ -27,3 +27,7 @@ Intel MKL FATAL ERROR: Cannot load libmkl_core.so.
     * euro_vanilla_dividend: 0.2574756679969141
     * sym_euro_vanilla: 5.854757393994078
     * sym_euro_vanilla_dividend: 5.827031799999531
+
+## 3.2.-20
+### Windows, Etana
+1. Remove dependency to sympy as out-of-scope.
