@@ -9,3 +9,7 @@ def main():
     black_scholes_call_div(50, 100, 1, 0.05, 0.06, 0.25)
     black_scholes_put_div(50, 100, 1, 0.05, 0.06, 0.25)
     euro_vanilla_dividend(50, 100, 1, 0.05, 0.06, 0.25, option='put')
+
+if __name__ =="__main__":
+    main()
+
