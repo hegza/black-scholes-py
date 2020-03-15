@@ -8,11 +8,12 @@ def main():
     put = euro_vanilla_put(50, 100, 1, 0.05, 0.25)
     print("put: " + str(put))
 
-    S = np.random.rand(100) * 50 + 25
-    K = np.random.rand(100) * 100 + 50
-    T = np.random.rand(100) * 1 + 0.5
-    r = np.random.rand(100) * 0.05 + 0.025
-    sigma = np.random.rand(100) * 0.25 + 0.175
+    n = 100
+    S = np.random.rand(n) * 50 + 25
+    K = np.random.rand(n) * 100 + 50
+    T = np.random.rand(n) * 1 + 0.5
+    r = np.random.rand(n) * 0.05 + 0.025
+    sigma = np.random.rand(n) * 0.25 + 0.175
 
     result = euro_vanilla_put(S, K, T, r, sigma)
     print("result: " + str(result))

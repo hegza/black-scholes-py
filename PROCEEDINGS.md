@@ -37,3 +37,10 @@ Intel MKL FATAL ERROR: Cannot load libmkl_core.so.
 1. Apply Cython on `black_scholes_dp` and `timeit` via interpreter for quick results.
     * >>> print(str(timeit( lambda : black_scholes_dp.black_scholes_call_div(50, 100, 1, 0.05, 0.06, 0.25), number=1000 )/1000.0))
     * 0.0002949255430139601
+
+## 15.3.-20
+- Priced 288 million options in 15.737706999999318 seconds, using Intel MKL.
+    * Verified that it's only using main memory (approx 13 Gb), did not go to swap.
+    * 18,299,997.5791 billion options per second
+    * 5.4644816e-8 seconds per option
+
